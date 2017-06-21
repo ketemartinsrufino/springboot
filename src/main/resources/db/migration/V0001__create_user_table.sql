@@ -1,0 +1,6 @@
+CREATE TABLE item (
+  id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  descricao VARCHAR(255) NOT NULL,
+  especie   VARCHAR(255) NOT NULL
+)
+  ENGINE = INNODB;

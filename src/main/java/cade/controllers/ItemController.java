@@ -1,7 +1,7 @@
-package kete.controllers;
+package cade.controllers;
 
-import kete.entities.Item;
-import kete.repository.ItemRepository;
+import cade.entities.Item;
+import cade.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,16 +33,16 @@ public class ItemController {
 
     @PostMapping("/populate")
     public void populate() {
-        Item item1 = new Item();
-        item1.setDescricao("Item1Desc");
-        item1.setEspecie("Item1Especie");
-
-        Item item2 = new Item();
-        item2.setDescricao("Item2Desc");
-        item2.setEspecie("Item2Especie");
-
-        itemRepository.save(item1);
-        itemRepository.save(item2);
+//        Item item1 = new Item();
+//        item1.setDescricao("Item1Desc");
+//        item1.setEspecie("Item1Especie");
+//
+//        Item item2 = new Item();
+//        item2.setDescricao("Item2Desc");
+//        item2.setEspecie("Item2Especie");
+//
+//        itemRepository.save(item1);
+//        itemRepository.save(item2);
     }
 
 }

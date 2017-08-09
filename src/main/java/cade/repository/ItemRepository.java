@@ -1,7 +1,8 @@
-package kete.repository;
+package cade.repository;
 
-import kete.entities.Item;
+import cade.entities.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,8 +12,6 @@ import java.util.List;
 @Transactional
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
-    List<Item> findByDescricao(String descricao);
-
-    List<Item> findAllByDescricaoOrderByEspecie(String descricao);
-
+    @Query("Select i.id from Item i ")
+    List<Integer> findAllIds();
 }

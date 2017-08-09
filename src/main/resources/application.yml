@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:mysql://192.168.99.100:32777/kete
-    password: kete
-    username: kete
+    url: jdbc:mysql://localhost:3306/tokenizacao
+    username: root
+    password: mypassword

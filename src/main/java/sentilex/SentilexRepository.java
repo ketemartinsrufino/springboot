@@ -6,5 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface DataRepository extends JpaRepository<Data, Long> {
+public interface SentilexRepository extends JpaRepository<SentilexData, Long> {
+
+    SentilexData findByForm(String form);
 }

@@ -23,14 +23,6 @@ public class Token {
 
     @Override
     public String toString() {
-        return "Token{" +
-                "id=" + id +
-                ", form='" + form + '\'' +
-                ", lemma='" + lemma + '\'' +
-                ", tag='" + tag + '\'' +
-                ", periodoPos=" + periodoPos +
-                ", position=" + position +
-                ", item_id=" + item_id +
-                '}';
+        return form;
     }
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @lombok.Data
 @Entity
 @Table(name = "sentilex")
-public class Data {
+public class SentilexData {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Data {
     private String polaridade;
     private String anotacao;
 
-    public Data(String[] data) {
+    public SentilexData(String[] data) {
 
         this.form = data[0];
         this.lemma = data[1];
@@ -33,4 +33,7 @@ public class Data {
 
     }
 
+    public SentilexData() {
+
+    }
 }

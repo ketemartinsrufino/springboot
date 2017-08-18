@@ -47,9 +47,8 @@ public class DicionarioAbertoAPI {
             }
             log.info(entry.getId());
             successsQte++;
-            log.info(" + Found [" + word + "] ");
         } catch (final HttpClientErrorException e) {
-            log.error("Error on word [" + word + "]: "+ e.getStatusCode());
+//            log.error("Error on word [" + word + "]: "+ e.getStatusCode());
 //            System.out.println(e.getResponseBodyAsString());
             errorsQte++;
         } catch (UnsupportedEncodingException e) {

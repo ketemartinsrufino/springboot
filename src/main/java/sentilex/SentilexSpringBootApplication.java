@@ -3,7 +3,6 @@ package sentilex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.ResourceLoader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,11 +15,11 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class SentilexSpringBootApplication {
 
-	private static DataRepository dataRepository;
+	private static SentilexRepository sentilexRepository;
 
 	@Autowired
-	public SentilexSpringBootApplication(DataRepository dataRepository) {
-		this.dataRepository = dataRepository;
+	public SentilexSpringBootApplication(SentilexRepository sentilexRepository) {
+		this.sentilexRepository = sentilexRepository;
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -29,8 +28,10 @@ public class SentilexSpringBootApplication {
 
 		String filePath = "src/main/java/sentilex/SentiLexPT01/SentiLex-flex-PT01.txt";
 
+		sentilexRepository.deleteAll();
+
 		try (Stream<String> lines = Files.lines(Paths.get(filePath))){
-			List headers = Arrays.asList(new String[]{"PoS", "GN", "TG", "POL", "ANOT", "="});
+			List headers = Arrays.asList(new String[]{"PoS", "GN", "TG", "POL", "ANOT", "=", "?"});
 			List<String[]> result = lines.map(it -> it.split(",\\s*|\\.\\s*|;")) // dá split nos ;
 					.map(it -> {
 
@@ -43,13 +44,10 @@ public class SentilexSpringBootApplication {
 						return it;
 					})
 					.map ( it -> {
-						dataRepository.save(new Data(it));
+						sentilexRepository.save(new SentilexData(it));
 						return it;
 					})
 					.collect(Collectors.toList());
-
-			System.out.println(result);
-
 		}
 	}
 
